@@ -1,6 +1,6 @@
 {
   "name": "@refentse/gatekeeper-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zero-Trust Package Management",
   "main": "index.js",
   "type": "module",
