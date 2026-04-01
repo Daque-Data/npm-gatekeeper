@@ -1,15 +1,10 @@
-# 🛡️ npm-gatekeeper
+# 🛡️ @refentse/gatekeeper-cli
 
 **Proactive, Zero-Trust Supply Chain Security for Node.js.**
 
-[](https://www.npmjs.com/)
-[](https://opensource.org/licenses/ISC)
-[](https://github.com/)
-[](https://github.com/)
+`@refentse/gatekeeper-cli` is a lightweight, high-performance CLI wrapper that shifts DevSecOps entirely to the left. By acting as an intercepting proxy for standard package installations, it neutralizes malicious payloads, typosquatting, and compromised dependencies **before a single byte is downloaded** to your local machine or CI/CD environment.
 
-`npm-gatekeeper` is a lightweight, high-performance CLI wrapper that shifts DevSecOps entirely to the left. By acting as an intercepting proxy for standard package installations, it neutralizes malicious payloads, typosquatting, and compromised dependencies **before a single byte is downloaded** to your local machine or CI/CD environment.
-
------
+---
 
 ## 🚨 The Threat Landscape
 
@@ -19,7 +14,7 @@ The modern JavaScript ecosystem operates on an implicit model of blind trust. Th
 
 ## 🛡️ The Gatekeeper Solution
 
-`npm-gatekeeper` replaces blind trust with **active, real-time metadata interception.**
+Gatekeeper replaces blind trust with **active, real-time metadata interception.**
 
 | Feature | `npm install` | `gatekeeper install` |
 | :--- | :---: | :---: |
@@ -29,39 +24,41 @@ The modern JavaScript ecosystem operates on an implicit model of blind trust. Th
 | **Typosquatting Protection** | ❌ No | ✅ Age Heuristics |
 | **Speed** | ⚡ Fast | ⚡ Fast (Native Hand-off) |
 
------
+---
 
 ## ⚙️ Core Architecture
 
 1.  **Threat Intelligence Sync:** Instantly cross-references requested packages against the **Google Open Source Vulnerabilities (OSV) API**. Known malicious payloads are hard-blocked.
 2.  **Lifecycle Quarantine:** Scans metadata for hidden `preinstall` and `postinstall` scripts. Suspicious events are flagged for developer authorization.
-3.  **Zero-Day Age Heuristics:** Protects against account-takeover by analyzing publication timestamps. Packages \< 48 hours old trigger high-risk warnings.
+3.  **Zero-Day Age Heuristics:** Protects against account-takeover by analyzing publication timestamps. Packages < 48 hours old trigger high-risk warnings.
 4.  **Frictionless Pass-Through:** If the package is clean, execution is handed off to the native `npm` binary with zero latency.
 
------
+---
 
 ## 🚀 Usage
 
 ### Installation
 
-```bash
-npm install -g npm-gatekeeper
-```
+Install globally to secure your local environment:
+
+\`\`\`bash
+npm install -g @refentse/gatekeeper-cli
+\`\`\`
 
 ### Secure Your Workflow
 
-Simply replace `npm` with `gatekeeper` when installing dependencies.
+Simply replace `npm` with `gatekeeper` when installing dependencies. The global installation automatically registers the `gatekeeper` command on your machine.
 
-```bash
+\`\`\`bash
 # Securely install a package
 gatekeeper install express
-```
+\`\`\`
 
 ### Example: Threat Interception
 
 If a compromised package or known malware vector is detected, Gatekeeper halts the process instantly:
 
-```text
+\`\`\`text
 $ gatekeeper install lodash-security-patch
 
 🔍 Inspecting metadata for: lodash-security-patch...
@@ -72,16 +69,16 @@ $ gatekeeper install lodash-security-patch
    Vulnerabilities: 1 [Malicious Script Injection]
    
 🚫 HARD BLOCK ACTIVATED. Installation aborted.
-```
+\`\`\`
 
------
+---
 
 ## 🏗️ Enterprise & CI/CD
 
 *Currently in Development.*
 We are building headless modes for **GitHub Actions, GitLab CI, and Azure DevOps** to enforce strict zero-trust installation policies across organizational builds.
 
------
+---
 
 ## 🤝 Contributing
 
